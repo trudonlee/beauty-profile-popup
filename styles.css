@@ -1,0 +1,255 @@
+/* CSS Variables for Consistent Colors */
+:root {
+  --primary-color: #002b5c;
+  --accent-color: #d4af37;
+  --background-color: #f9f9f9;
+  --text-color: #333;
+  --card-border: #eee;
+}
+
+/* Base & Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Container */
+.container {
+  max-width: 960px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Header Styling */
+header.header {
+  position: relative;
+}
+
+header.header img {
+  width: 100%;
+  display: block;
+  height: auto;
+}
+
+.waitlist-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: linear-gradient(135deg, var(--accent-color), #c09933);
+  color: #fff;
+  padding: 12px 24px;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.waitlist-button:hover {
+  background: linear-gradient(135deg, #b89630, #a67c2a);
+  transform: translateY(-2px);
+}
+
+/* Content & Title */
+main.content {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: var(--primary-color);
+  background: -webkit-linear-gradient(var(--primary-color), var(--accent-color));
+  background: linear-gradient(var(--primary-color), var(--accent-color));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Card Container */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.card {
+  background: #fff;
+  width: 280px;
+  padding: 24px;
+  border-radius: 12px;
+  border: 1px solid var(--card-border);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+}
+
+.card:hover,
+.card:focus {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  border: 1px solid var(--accent-color);
+  outline: none;
+}
+
+.card h2 {
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 12px;
+  font-size: 1.75rem;
+  color: var(--primary-color);
+}
+
+.card p {
+  color: #666;
+  font-size: 1rem;
+}
+
+/* Modal Styling */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.6);
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes popIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.modal-content {
+  background: #fff;
+  margin: 5% auto;
+  padding: 30px;
+  max-width: 800px;
+  border-radius: 12px;
+  position: relative;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  animation: popIn 0.4s ease;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+/* Custom scrollbar for modal content */
+.modal-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background: var(--accent-color);
+  border-radius: 4px;
+}
+
+.modal-content h2 {
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 20px;
+  color: var(--primary-color);
+  font-size: 2rem;
+  border-bottom: 2px solid var(--accent-color);
+  padding-bottom: 10px;
+}
+
+.modal-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.modal-content th,
+.modal-content td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+  font-size: 1rem;
+}
+
+.modal-content th {
+  background: #f5f5f5;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+}
+
+.modal-content td {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--text-color);
+  cursor: pointer;
+  background: none;
+  border: none;
+  transition: color 0.3s ease;
+}
+
+.close:hover {
+  color: var(--accent-color);
+}
+
+/* Footer Styling */
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+  color: #666;
+  background: #fff;
+  margin-top: 20px;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+  .card {
+    width: 90%;
+  }
+  .modal-content {
+    margin: 10% auto;
+    width: 95%;
+    padding: 20px;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+}
